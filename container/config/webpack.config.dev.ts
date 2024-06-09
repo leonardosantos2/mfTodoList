@@ -27,7 +27,7 @@ const devConfig: Configuration = {
   devtool: 'inline-source-map',
   devServer: {
     port: 3030,
-    // open: true,
+    open: true,
   },
 };
 
