@@ -1,5 +1,7 @@
+import TodoListView from './view/TodoListView';
+
 const App = () => {
-  return <h1>My ToDo List MF App</h1>;
+  return <TodoListView />;
 };
 
 export default App;
