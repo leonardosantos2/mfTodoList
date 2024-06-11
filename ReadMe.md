@@ -14,20 +14,18 @@ The repository is composed of two projects:
 
 ## Running Project
 
-To properly run the whole application, you'll need to:
-A. Be using Node v20 and NPM v10;
-B. run both `container` and `todolist` projects;
+To properly run the whole application, you'll need to (A) Be using Node v20 and NPM v10 and (B) run both `container` and `todolist` projects;
 
 To run both applications, follow the steps below:
 
-1. In another terminal, navigate to the `todolist` folder and run the following commands:
+1. In one terminal, navigate to the `todolist` folder and run the following commands:
 
 ```
 npm ci
 npm run dev
 ```
 
-2. In a terminal, navigate to the `container` folder and run the following commands:
+2. In another terminal, navigate to the `container` folder and run the following commands:
 
 ```
 npm ci
