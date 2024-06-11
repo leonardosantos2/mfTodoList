@@ -38,3 +38,9 @@ P.S.: The `container` and `todolist` projects are running on ports 3030 and 3031
 P.S.2: The `todolist` project can be developed/tested separately by running step 1 above.
 
 ## Running Tests
+
+Use the following command (from inside the `todolist` folder) to run the tests:
+
+```
+npm run test
+```

@@ -28,9 +28,14 @@ const TodoListView = () => {
             onChange={handleTaskNewNameChange}
             placeholder="Add new task here..."
             aria-label="New task element"
+            data-testid="taskNewName"
           />
 
-          <button type="submit" onClick={handleCreateTask}>
+          <button
+            type="submit"
+            onClick={handleCreateTask}
+            data-testid="addTaskBtn"
+          >
             Add
           </button>
         </form>
@@ -42,9 +47,9 @@ const TodoListView = () => {
           <select
             id="sortBy"
             name="sortBy"
-            defaultValue={sortByOptions[0].value}
             onChange={handleSortByChange}
             value={sortBy}
+            data-testid="sortBySelectField"
           >
             {sortByOptions.map(({ label, value }) => (
               <option key={`sortBy${value}`} value={value}>
@@ -60,6 +65,7 @@ const TodoListView = () => {
                   type="checkbox"
                   checked={task.done}
                   onChange={handleTaskUpdate(task)}
+                  data-testid={`task_checkbox_${task.name.replace(/\s/g, '_')}`}
                 />
                 <p onClick={() => handleTaskUpdate(task)(!task.done)}>
                   {task.name}
