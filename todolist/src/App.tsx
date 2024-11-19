@@ -1,21 +1,11 @@
-// import { RouterProvider } from 'react-router-dom';
-// import { router } from './router';
+import { RouterProvider, RouterProviderProps } from 'react-router-dom';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { routesObj } from './router';
+type AppProps = {
+  router: RouterProviderProps['router'];
+};
 
-const App = () => {
-  // return <RouterProvider router={router} />;
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        {Object.values(routesObj).map((route) => (
-          <Route key={route.path} {...route} />
-        ))}
-      </Routes>
-    </BrowserRouter>
-  );
+const App = ({ router }: AppProps) => {
+  return <RouterProvider router={router} />;
 };
 
 export default App;
