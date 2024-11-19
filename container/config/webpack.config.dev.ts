@@ -28,6 +28,7 @@ const devConfig: Configuration = {
   devServer: {
     port: 3030,
     open: true,
+    historyApiFallback: true
   },
 };
 

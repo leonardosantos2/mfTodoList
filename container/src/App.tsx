@@ -1,12 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TodoListApp from './components/TodoApp';
+import Header from './components/Header';
 
 const App = () => {
   return (
-    <>
-      <h1>My Container App</h1>
-      <hr />
-      <TodoListApp />
-    </>
+    <BrowserRouter>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<TodoListApp />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
