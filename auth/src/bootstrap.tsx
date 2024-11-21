@@ -9,34 +9,14 @@ const mount = (
   el: HTMLElement,
   {
     defaultHistory,
-    initialPath,
-    onNavigate,
   }: {
     defaultHistory: RouterProviderProps['router'];
-    initialPath?: string;
-    onNavigate?: (nextPathname: string) => void;
   },
 ) => {
-  const router =
-    defaultHistory ||
-    createMemoryRouter(Object.values(routesObj), {
-      initialEntries: initialPath ? [initialPath] : undefined,
-    });
-
-  if (onNavigate) {
-    router.subscribe(({ location }) => onNavigate(location.pathname));
-  }
+  const router = defaultHistory || createMemoryRouter(Object.values(routesObj));
 
   const root = createRoot(el);
   root.render(<App router={router} />);
-
-  return {
-    onParentNavigate: (nextPathname?: string) => {
-      if (nextPathname && router.state.location.pathname !== nextPathname) {
-        router.navigate(nextPathname);
-      }
-    },
-  };
 };
 
 if (process.env.NODE_ENV === 'development') {
