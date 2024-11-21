@@ -7,12 +7,19 @@ const Header = () => {
     <div
       style={{
         display: 'flex',
+        justifyContent: 'space-between',
         borderBottom: 'solid 1px gray',
         padding: '0 0 16px',
       }}
     >
-      <h1>My Container App</h1>
-      <button onClick={() => navigate('/')}>Home</button>
+      <div style={{ display: 'flex' }}>
+        <button onClick={() => navigate('/')}>Home</button>
+        <p>
+          <strong>Container App</strong>
+        </p>
+      </div>
+
+      <button onClick={() => navigate('/auth/signin')}>Login</button>
     </div>
   );
 };

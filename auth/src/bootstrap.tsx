@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { createMemoryRouter, RouterProviderProps } from 'react-router';
+import { createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import { createBrowserRouter } from 'react-router-dom';
 import { routesObj } from './router';
 
 const mount = (
@@ -40,7 +40,7 @@ const mount = (
 };
 
 if (process.env.NODE_ENV === 'development') {
-  const container = document.getElementById('todolist-root');
+  const container = document.getElementById('auth-root');
 
   if (container) {
     mount(container, {

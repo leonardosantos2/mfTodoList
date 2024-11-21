@@ -11,8 +11,14 @@ type Configuration = WebpackConfiguration & {
   devServer?: WebpackDevServerConfiguration;
 };
 
+const TODOLIST_PORT = 3031;
+
 const devConfig: Configuration = {
   mode: 'development',
+  output: {
+    filename: '[name].[contenthash].js',
+    publicPath: `http://localhost:${TODOLIST_PORT}/`,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
@@ -27,7 +33,7 @@ const devConfig: Configuration = {
   ],
   devtool: 'inline-source-map',
   devServer: {
-    port: 3031,
+    port: TODOLIST_PORT,
     open: true,
     historyApiFallback: true,
   },

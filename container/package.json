@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config config/webpack.config.dev.ts --mode production",
     "dev": "webpack serve --config config/webpack.config.dev.ts",
-    "lint": "eslint src --max-warnings 0 --ext .ts,.tsx",
+    "lint": "eslint src --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"./src/**/*.+(ts|tsx)\""
   },
@@ -17,15 +17,13 @@
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
     "html-webpack-plugin": "^5.6.3",
     "prettier": "^3.3.3",
     "ts-loader": "^9.5.1",

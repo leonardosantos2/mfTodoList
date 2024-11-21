@@ -11,30 +11,31 @@ type Configuration = WebpackConfiguration & {
   devServer?: WebpackDevServerConfiguration;
 };
 
-const CONTAINER_PORT = 3030;
+const AUTH_PORT = 3032;
 
 const devConfig: Configuration = {
   mode: 'development',
   output: {
-    publicPath: `http://localhost:${CONTAINER_PORT}/`
+    filename: '[name].[contenthash].js',
+    publicPath: `http://localhost:${AUTH_PORT}/`,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        todoListApp: 'todolist@http://localhost:3031/todolistEntry.js',
-        authApp: 'auth@http://localhost:3032/authEntry.js',
+      name: 'auth',
+      filename: 'authEntry.js',
+      exposes: {
+        './AuthIndex': './src/bootstrap',
       },
     }),
   ],
   devtool: 'inline-source-map',
   devServer: {
-    port: CONTAINER_PORT,
+    port: AUTH_PORT,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
 };
 

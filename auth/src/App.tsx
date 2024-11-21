@@ -6,7 +6,7 @@ type AppProps = {
 
 const App = ({ router }: AppProps) => {
   return (
-    <div style={{ backgroundColor: '#e1f1ff' }}>
+    <div style={{ backgroundColor: '#ffefe1' }}>
       <RouterProvider router={router} />
     </div>
   );

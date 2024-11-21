@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { mount } from 'todoListApp/TodoListIndex';
+import { mount } from 'authApp/AuthIndex';
 
-const TodoApp = () => {
+const AuthenticationApp = () => {
   const ref = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const TodoApp = () => {
     if (ref.current) {
       const { onParentNavigate } = mount(ref.current, {
         initialPath: location.pathname,
-        onNavigate: (nextPathname?: string) => {
-          if (nextPathname && location.pathname !== nextPathname) {
+        onNavigate: (nextPathname: string) => {
+          if (location.pathname !== nextPathname) {
             navigate(nextPathname);
           }
         },
@@ -36,4 +36,4 @@ const TodoApp = () => {
   return <div ref={ref} />;
 };
 
-export default TodoApp;
+export default AuthenticationApp;
