@@ -1,7 +1,22 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../context/AuthContext';
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const { userToken, setUserToken } = useContext(AuthContext);
+
+  const handleLoginLogout = () => {
+    if (userToken) {
+      // Logout
+      setUserToken(null);
+    } else {
+      // Login
+      navigate('/auth/signin');
+    }
+  };
 
   return (
     <div
@@ -19,7 +34,9 @@ const Header = () => {
         </p>
       </div>
 
-      <button onClick={() => navigate('/auth/signin')}>Login</button>
+      <button onClick={handleLoginLogout}>
+        {userToken ? 'Logout' : 'Login'}
+      </button>
     </div>
   );
 };

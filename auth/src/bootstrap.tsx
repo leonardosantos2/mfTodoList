@@ -11,10 +11,12 @@ const mount = (
     defaultHistory,
     initialPath,
     onNavigate,
+    ...props
   }: {
     defaultHistory: RouterProviderProps['router'];
     initialPath?: string;
     onNavigate?: (nextPathname: string) => void;
+    onSignIn: (newToken: string) => void;
   },
 ) => {
   const router =
@@ -28,7 +30,7 @@ const mount = (
   }
 
   const root = createRoot(el);
-  root.render(<App router={router} />);
+  root.render(<App {...props} router={router} />);
 
   return {
     onParentNavigate: (nextPathname?: string) => {
@@ -45,6 +47,7 @@ if (process.env.NODE_ENV === 'development') {
   if (container) {
     mount(container, {
       defaultHistory: createBrowserRouter(Object.values(routesObj)),
+      onSignIn: () => {},
     });
   }
 }

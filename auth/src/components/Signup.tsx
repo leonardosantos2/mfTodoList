@@ -1,9 +1,9 @@
+import { useContext } from 'react';
 import { routesObj } from '../router';
+import { HostContext } from '../context/host';
 
 const Signup = () => {
-  const handleSubmit = () => {
-    console.log('Sign up');
-  };
+  const { onSignIn } = useContext(HostContext);
 
   return (
     <>
@@ -31,7 +31,13 @@ const Signup = () => {
           <label htmlFor="latestnews">Subscribe to latest news</label>
         </div>
 
-        <button onClick={handleSubmit}>Log in</button>
+        <button
+          onClick={() =>
+            onSignIn((Math.random() + 1).toString(36).substring(2))
+          }
+        >
+          Log in
+        </button>
         <p>
           Already an User? <a href={routesObj.signin.path}>Click here</a>
         </p>
