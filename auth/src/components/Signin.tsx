@@ -1,10 +1,6 @@
 import { routesObj } from '../router';
 
 const Singin = () => {
-  const handleSubmit = () => {
-    console.log('Sign in');
-  };
-
   return (
     <>
       <h1>Sign In</h1>
@@ -19,7 +15,7 @@ const Singin = () => {
         <label htmlFor="password">Password</label>
         <input type="password" id="password" />
 
-        <button onClick={handleSubmit}>Log in</button>
+        <button onClick={() => console.log('Signin clicked')}>Log in</button>
         <p>
           New User? <a href={routesObj.signup.path}>Click here</a>
         </p>

@@ -10,7 +10,7 @@ const mount = (
   {
     defaultHistory,
   }: {
-    defaultHistory: RouterProviderProps['router'];
+    defaultHistory?: RouterProviderProps['router'];
   },
 ) => {
   const router = defaultHistory || createMemoryRouter(Object.values(routesObj));
