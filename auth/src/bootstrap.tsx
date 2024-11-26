@@ -13,7 +13,7 @@ const mount = (
     onNavigate,
     ...props
   }: {
-    defaultHistory: RouterProviderProps['router'];
+    defaultHistory?: RouterProviderProps['router'];
     initialPath?: string;
     onNavigate?: (nextPathname: string) => void;
     onSignIn: (newToken: string) => void;
