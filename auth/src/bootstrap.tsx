@@ -16,7 +16,6 @@ const mount = (
     defaultHistory?: RouterProviderProps['router'];
     initialPath?: string;
     onNavigate?: (nextPathname: string) => void;
-    onSignIn: (newToken: string) => void;
   },
 ) => {
   const router =
@@ -47,7 +46,6 @@ if (process.env.NODE_ENV === 'development') {
   if (container) {
     mount(container, {
       defaultHistory: createBrowserRouter(Object.values(routesObj)),
-      onSignIn: () => {},
     });
   }
 }

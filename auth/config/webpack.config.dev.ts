@@ -3,6 +3,7 @@ import webpack, { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import { merge } from 'webpack-merge';
 import path from 'path';
+import { dependencies } from '../package.json';
 
 import commonConfig from './webpack.config.common';
 const { FederatedTypesPlugin } = require('@module-federation/typescript');
@@ -21,6 +22,15 @@ const federationConfig = {
   exposes: {
     './AuthIndex': './src/bootstrap',
   },
+  remotes: {
+    'authContext': 'container@http://localhost:3030/containerEntry.js',
+  },
+  shared: {
+    'react': {
+      singleton: true,
+      requiredVersion: dependencies.react,
+    }
+  }
 };
 
 const devConfig: Configuration = {

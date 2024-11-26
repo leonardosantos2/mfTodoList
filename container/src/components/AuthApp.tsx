@@ -1,15 +1,12 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { mount } from 'authApp/AuthIndex';
-import { AuthContext } from '../context/AuthContext';
 
 const AuthenticationApp = () => {
   const ref = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
-
-  const { setUserToken } = useContext(AuthContext);
 
   const [onHostNavigate, setOnHostNavigate] = useState<
     ((nextPathname: string) => void) | null
@@ -23,9 +20,6 @@ const AuthenticationApp = () => {
           if (location.pathname !== nextPathname) {
             navigate(nextPathname);
           }
-        },
-        onSignIn: (newToken: string) => {
-          setUserToken(newToken);
         },
       });
 

@@ -1,17 +1,17 @@
 import { RouterProvider, RouterProviderProps } from 'react-router-dom';
-import { HostContext } from './context/host';
+
+import { AuthContextProvider } from 'authContext/AuthContextIndex';
 
 type AppProps = {
   router: RouterProviderProps['router'];
-  onSignIn: (newUserToken: string) => void;
 };
 
-const App = ({ router, onSignIn }: AppProps) => {
+const App = ({ router }: AppProps) => {
   return (
     <div style={{ backgroundColor: '#ffefe1' }}>
-      <HostContext.Provider value={{ onSignIn }}>
+      <AuthContextProvider>
         <RouterProvider router={router} />
-      </HostContext.Provider>
+      </AuthContextProvider>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { routesObj } from '../router';
-import { HostContext } from '../context/host';
+
+import { AuthContext } from 'authContext/AuthContextIndex';
 
 const Singin = () => {
-  const { onSignIn } = useContext(HostContext);
+  const { setUserToken } = useContext(AuthContext);
 
   return (
     <>
@@ -20,9 +21,9 @@ const Singin = () => {
         <input type="password" id="password" />
 
         <button
-          onClick={() =>
-            onSignIn((Math.random() + 1).toString(36).substring(2))
-          }
+          onClick={() => {
+            setUserToken((Math.random() + 1).toString(36).substring(2));
+          }}
         >
           Log in
         </button>
