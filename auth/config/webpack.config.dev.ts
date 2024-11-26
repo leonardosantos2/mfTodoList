@@ -21,9 +21,6 @@ const federationConfig = {
   exposes: {
     './AuthIndex': './src/bootstrap',
   },
-  remotes: {
-    containerAuthContext: 'container@http://localhost:3030/containerEntry.js',
-  }
 };
 
 const devConfig: Configuration = {
